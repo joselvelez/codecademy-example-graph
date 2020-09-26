@@ -14,6 +14,14 @@ class Graph:
         if not self.directed:
             self.graph_dict[to_vertex.value].add_edge(from_vertex.value, weight)
 
+    def find_path(self, start_vertex, end_vertex):
+        print("Searching for path between {start} and {end}".format(start=start_vertex, end=end_vertex))
+        start = [start_vertex]
+        while len(start) != 0:
+            current_vertex = start[0]
+            print(current_vertex)
+            start.pop()
+
 ''' Test / Debut '''
 # railway = Graph()
 # print(railway.graph_dict)
