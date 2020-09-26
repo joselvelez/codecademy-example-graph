@@ -17,10 +17,18 @@ class Graph:
     def find_path(self, start_vertex, end_vertex):
         print("Searching for path between {start} and {end}".format(start=start_vertex, end=end_vertex))
         start = [start_vertex]
-        while len(start) != 0:
-            current_vertex = start[0]
-            print(current_vertex)
-            start.pop()
+        while len(start) > 0:
+            current_vertex = start.pop(0)
+            print("Visiting {current_v}".format(current_v=current_vertex))
+            if current_vertex == end_vertex:
+                return True
+            else:
+                vertex = self.graph_dict[current_vertex]
+                next_vertices = vertex.get_edges()
+                # print(start)
+                # print(next_vertices)
+                start.extend(next_vertices)
+        return False
 
 ''' Test / Debut '''
 # railway = Graph()
